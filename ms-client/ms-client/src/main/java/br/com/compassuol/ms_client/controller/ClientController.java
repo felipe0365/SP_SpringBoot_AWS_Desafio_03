@@ -28,4 +28,10 @@ public class ClientController {
         return new ResponseEntity<>(clientCreated, HttpStatus.CREATED);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Client> findById(@PathVariable Long id) {
+        var client = clientService.getClientById(id);
+        return new ResponseEntity<>(client, HttpStatus.OK);
+    }
+
 }
