@@ -28,4 +28,8 @@ public class ClientService {
     public List<Client> getAllClients() {
         return clientRepository.findAll();
     }
+
+    public Client updateClient(Client clientRequest) {
+        return clientRepository.save(clientRequest);
+    }
 }

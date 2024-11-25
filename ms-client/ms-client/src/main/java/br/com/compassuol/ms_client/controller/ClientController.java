@@ -34,4 +34,15 @@ public class ClientController {
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client client) {
+        var clientInDb = clientService.getClientById(id);
+        clientInDb.setId(clientInDb.getId());
+        clientInDb.setName(client.getName());
+        clientInDb.setEmail(client.getEmail());
+        clientService.updateClient(clientInDb);
+        return new ResponseEntity<>(clientInDb, HttpStatus.OK);
+
+    }
+
 }
