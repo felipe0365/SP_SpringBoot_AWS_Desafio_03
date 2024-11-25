@@ -22,5 +22,10 @@ public class ClientController {
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }
 
+    @PostMapping
+    public ResponseEntity<Client> save(@RequestBody Client client) {
+        var clientCreated = clientService.createClient(client);
+        return new ResponseEntity<>(clientCreated, HttpStatus.CREATED);
+    }
 
 }
