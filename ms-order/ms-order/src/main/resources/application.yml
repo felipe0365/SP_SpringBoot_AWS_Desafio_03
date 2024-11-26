@@ -1,6 +1,8 @@
 spring:
+  application:
+    name: ms-order
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_client
+    url: jdbc:postgresql://localhost:5434/db_order
     username: user
     password: 123
   jpa:
@@ -11,4 +13,4 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
-  port: 8084
+  port: 8085
