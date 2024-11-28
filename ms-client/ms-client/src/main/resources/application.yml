@@ -12,3 +12,11 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8084
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    use-root-path: true
+  paths-to-match: /api/clients/**
