@@ -1,7 +1,8 @@
-package br.com.compassuol.ms_client.controller;
+package br.com.compassuol.ms_client.web.controller;
 
 import br.com.compassuol.ms_client.model.Client;
 import br.com.compassuol.ms_client.service.ClientService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<Client> save(@RequestBody Client client) {
+    public ResponseEntity<Client> save(@RequestBody @Valid Client client) {
         var clientCreated = clientService.createClient(client);
         return new ResponseEntity<>(clientCreated, HttpStatus.CREATED);
     }
